@@ -3,7 +3,7 @@ Hashing Ships is a terminal game where users must sink ships in a hashmap.
 
 ## Team members:
 - Pablo Hurtado
-- [name]
+- Sofia Gonzalez 
 - [name]
 
 ## Contributions
