@@ -1,4 +1,6 @@
-package Hashing;
+package implementations.hashing;
+
+import interfaces.hashing.inputHash;
 
 public class UserInputHashing implements inputHash {
 

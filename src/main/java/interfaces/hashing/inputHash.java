@@ -1,4 +1,4 @@
-package Hashing;
+package interfaces.hashing;
 
 public interface inputHash {
 
