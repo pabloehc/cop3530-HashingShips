@@ -15,9 +15,17 @@ public class RandomImpl implements RandomShips {
     public static final int MIN_SHIPS = 1;
     public static final int MAX_SHIPS = 5;
 
+
+    /**
+     * Create a list of strings that has 2 random characters from a-z.
+     * @param numberOfShips is the length of the list.
+     * @return a list of strings.
+     */
     @Override
     public List<String> randomValues(int numberOfShips) {
+        //Input: 2; Output: [ab, bk]
         return null;
+
     }
 
     /**
