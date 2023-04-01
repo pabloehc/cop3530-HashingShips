@@ -15,6 +15,11 @@ public class RandomImpl implements RandomShips {
     public static final int MIN_SHIPS = 1;
     public static final int MAX_SHIPS = 5;
 
+    public static void main(String[] args) {
+
+        RandomImpl randomImpl = new RandomImpl();
+        System.out.println(randomImpl.randomValues(2));
+    }
 
     /**
      * Create a list of strings that has 2 random characters from a-z.
@@ -22,9 +27,15 @@ public class RandomImpl implements RandomShips {
      * @return a list of strings.
      */
     @Override
-    public List<String> randomValues(int numberOfShips) {
+    public  List<String> randomValues(int numberOfShips) {
         //Input: 2; Output: [ab, bk]
-        return null;
+        ArrayList<String> charList = new ArrayList<String>();
+        for (int i = 0; i < numberOfShips; i++){
+            char randomChar1 = (char) (rand.nextInt(26) + 'a');
+            char randomChar2 = (char) (rand.nextInt(26) + 'a');
+            charList.add(Character.toString((char) randomChar1) + Character.toString((char) randomChar2));
+        }
+        return charList;
 
     }
 
