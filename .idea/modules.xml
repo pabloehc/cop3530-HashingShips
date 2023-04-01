@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cop3530-HashingShips.iml" filepath="$PROJECT_DIR$/.idea/cop3530-HashingShips.iml" />
+      <module fileurl="file://$PROJECT_DIR$/COP3530-Project.iml" filepath="$PROJECT_DIR$/COP3530-Project.iml" />
     </modules>
   </component>
 </project>
