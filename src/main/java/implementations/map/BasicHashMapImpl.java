@@ -41,7 +41,7 @@ public class BasicHashMapImpl implements BasicHashMap {
      */
     @Override
     public int get(String key) {
-        int hashedKey = hash(key, mapSize);; // TODO: replace with OBJ
+        int hashedKey = hash(key, mapSize); // TODO: replace with OBJ
         return values[hashedKey];
     }
 
