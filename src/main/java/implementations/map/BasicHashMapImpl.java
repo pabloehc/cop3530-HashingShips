@@ -3,7 +3,7 @@ package implementations.map;
 import interfaces.map.BasicHashMap;
 
 /**
- * An implementation of a custom hash map that maps integer keys to integer values.
+ * An implementation of a BasicHashMap that maps string keys to integer values.
  * This implementation uses a hash function to determine the index in an array
  * where the corresponding value is stored.
  */
@@ -48,7 +48,7 @@ public class BasicHashMapImpl implements BasicHashMap {
     /**
      * Creates a new custom hash map with the specified size.
      * @param size the size of the new map.
-     * @return a new BasicMap with the specified size.
+     * @return a new BasicHashMap with the specified size.
      */
     @Override
     public BasicHashMap createNewMap(int size) {

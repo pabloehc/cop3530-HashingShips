@@ -6,6 +6,12 @@ import interfaces.map.ShipHashMap;
 
 import java.util.List;
 
+/**
+ * BattleMap is an implementation of ShipHashMap that manages a map of ships.
+ * It generates ships randomly, assigns them random lives, and allows for attacking them.
+ * When a ship is attacked, its lives are decreased. A ship is considered destroyed when its lives reach zero.
+ * The class provides a method to check if there are still ships remaining on the map.
+ */
 public class BattleMap implements ShipHashMap {
 
     private final RandomShips randomShips = new RandomImpl();
@@ -56,6 +62,10 @@ public class BattleMap implements ShipHashMap {
         return true;
     }
 
+    /**
+     * Check if there are still ships in the battle map.
+     * @return true if there are ships, false otherwise.
+     */
     @Override
     public boolean hasShips() {
         return numberOfShips > 0;
