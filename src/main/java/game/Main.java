@@ -15,10 +15,10 @@ public class Main {
     public static GameFlow gameFlow = new GameFlowImpl(devMode);
     public static InputHash inputHash = new InputHashImpl();
 
+    public static Hints hints = new Hints();
 
 
     public static void main(String[] args) throws InterruptedException {
-        Hints nextHint = new Hints();
         BattleMap battleMap = new BattleMap(4, 2);
         Scanner scanner = new Scanner(System.in);
 
@@ -28,8 +28,7 @@ public class Main {
 
             String attackKey = askForInput(scanner);
             if(attackKey.equalsIgnoreCase("hint")) {
-               System.out.println(nextHint.getNextHint());
-               System.out.println("You have " + nextHint.getSize() + " hints left.\n");
+               gameFlow.showHintMessage(hints.getNextHint(), hints.getSize());
                continue;
             }
                 boolean isSuccessfulAttack = attack(battleMap, attackKey);

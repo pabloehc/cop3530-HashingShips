@@ -13,10 +13,11 @@ public interface Hinter {
      */
     void populateHints();
 
-
     /**
-     * Prints the next hint from the queue to the command line.
-     * If there are no hints in the queue, display a message indicating the absence of hints.
+     * Retrieves the next element from nextHint class and inserts it into a string GetHint and then removes that element
+     *
+     * @return returns a string value from inside nextHint Queue class
      */
     String getNextHint();
+
 }

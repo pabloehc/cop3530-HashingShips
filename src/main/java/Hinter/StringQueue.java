@@ -2,11 +2,12 @@ package Hinter;
 
 
 import java.util.LinkedList;
+import java.util.Optional;
 
-public class MyQueue {
+public class StringQueue {
     private final LinkedList<String> queue;
 
-    public MyQueue() {
+    public StringQueue() {
         queue = new LinkedList();
     }
 
@@ -19,7 +20,7 @@ public class MyQueue {
     }
     public String dequeue() {
         if (queue.isEmpty()) {
-            return  "No hints available";
+            return null;
         }
         String next = queue.get(0);
         queue.remove(0);
