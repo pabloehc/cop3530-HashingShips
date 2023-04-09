@@ -53,7 +53,7 @@ public class GameFlowImpl implements GameFlow {
     public void showHintMessage(String getHint, int HintsLeft) throws InterruptedException {
         if (!devMode) Thread.sleep(2000);
         System.out.println("You asked for a hint! Let's get one...");
-        if (!devMode) Thread.sleep(5000);
+        if (!devMode) Thread.sleep(4000);
         System.out.println(getHint);
         if (!devMode) Thread.sleep(5000);
         System.out.println("You have " + HintsLeft + " hints left!\n");
