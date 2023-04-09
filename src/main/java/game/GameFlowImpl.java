@@ -15,13 +15,15 @@ public class GameFlowImpl implements GameFlow {
 
     public void showIntro() throws InterruptedException {
         System.out.println("Welcome to the HashingShips game!");
+        if (!devMode) Thread.sleep(1000);
+        System.out.println("There are 2 ships hidden in the map...");
         if (!devMode) Thread.sleep(2000);
-        System.out.println("There are 2 ships hidden in the map.");
+        System.out.println("You write a 1 to 2 char string to attack (e.g.,'a', 'ab')...");
+        if (!devMode) Thread.sleep(3000);
+        System.out.println("Your input hashes to a position on the map...");
+        if (!devMode) Thread.sleep(3000);
+        System.out.println("No repeated input allowed!...");
         if (!devMode) Thread.sleep(2000);
-        System.out.println("Enter a 2-character string (e.g., 'ab') to attack!");
-        if (!devMode) Thread.sleep(3000);
-        System.out.println("Your input hashes to a position on the map.");
-        if (!devMode) Thread.sleep(3000);
         System.out.println("Try to sink all the ships to win the game!");
         if (!devMode) Thread.sleep(1000);
         System.out.println("--------------------------------------------------");
@@ -32,9 +34,7 @@ public class GameFlowImpl implements GameFlow {
         if (!devMode) Thread.sleep(1000);
     }
 
-    public void showAttackResult(boolean attackResult, int position) {
-        System.out.printf("Your attack is directed to position %s...", position);
-        if (!devMode) Thread.sleep(1000);
+    public void showAttackResult(boolean attackResult) {
         if (attackResult) {
             System.out.println("Hit! You hit a ship!");
         } else {
