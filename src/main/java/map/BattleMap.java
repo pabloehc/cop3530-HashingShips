@@ -19,11 +19,13 @@ public class BattleMap implements ShipHashMap {
     private final BasicHashMap battleMap;
     private int numberOfShips;
     private final List<String> shipKeys;
+    private int size;
 
     public BattleMap(int mapSize, int numberOfShips) {
+        this.size = mapSize;
         this.numberOfShips = numberOfShips;
-        this.shipKeys = randomShips.randomValues(numberOfShips, mapSize); // TODO: make sure they don't hash to the same keys
-        this.battleMap = BasicHashMapImpl.createNewMap(mapSize);
+        this.shipKeys = randomShips.randomValues(numberOfShips, size); // TODO: make sure they don't hash to the same keys
+        this.battleMap = BasicHashMapImpl.createNewMap(size);
         initShips();
     }
 
@@ -70,5 +72,9 @@ public class BattleMap implements ShipHashMap {
     @Override
     public boolean hasShips() {
         return numberOfShips > 0;
+    }
+
+    public int getSize() {
+        return size;
     }
 }
