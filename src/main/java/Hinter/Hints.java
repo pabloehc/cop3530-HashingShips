@@ -32,7 +32,7 @@ public class Hints implements Hinter{
      * @return returns a string value from inside nextHint Queue class
      */
     @Override
-    public String printNextHint() {
+    public String getNextHint() {
 
         String getHint;
         getHint = nextHint.dequeue();

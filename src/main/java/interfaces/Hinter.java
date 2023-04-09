@@ -18,5 +18,5 @@ public interface Hinter {
      * Prints the next hint from the queue to the command line.
      * If there are no hints in the queue, display a message indicating the absence of hints.
      */
-    String printNextHint();
+    String getNextHint();
 }

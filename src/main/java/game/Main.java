@@ -28,13 +28,13 @@ public class Main {
 
             String attackKey = askForInput(scanner);
             if(attackKey.equalsIgnoreCase("hint")) {
-               System.out.println(nextHint.printNextHint());
+               System.out.println(nextHint.getNextHint());
                System.out.println("You have " + nextHint.getSize() + " hints left.\n");
+               continue;
             }
-            else {
                 boolean isSuccessfulAttack = attack(battleMap, attackKey);
                 gameFlow.showAttackResult(isSuccessfulAttack);
-            }
+
 //            if (!validator.isValid(attackKey)) {
 //                continue;
 //            }
