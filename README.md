@@ -8,10 +8,11 @@ Hashing Ships is a terminal game where users must sink ships in a hashmap.
 
 ## Contributions
 ### Pablo Hurtado
--
+- BasicHashMap interface and implementation.
+- ShipHashMap and BattleMap.
 
-### [Carlos Mendez]
--
+### Carlos Mendez
+- InputHash interface and implementation
 
-### [name]
--
+### Sofia Gonzales
+- Random Ships interface and implementation.

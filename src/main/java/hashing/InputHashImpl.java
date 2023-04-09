@@ -1,8 +1,10 @@
-package Hashing;
+package hashing;
 
-public class InputHashing implements InputHash {
+import interfaces.InputHash;
 
-    public int hashCode(String key, int hashMapSize)
+public class InputHashImpl implements InputHash {
+
+    public int hashInput(String key, int hashMapSize)
     {
         int hashVal = 0;
 
