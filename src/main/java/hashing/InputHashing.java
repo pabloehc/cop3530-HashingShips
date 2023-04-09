@@ -1,4 +1,6 @@
-package Hashing;
+package hashing;
+
+import interfaces.InputHash;
 
 public class InputHashing implements InputHash {
 

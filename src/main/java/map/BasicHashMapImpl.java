@@ -1,6 +1,8 @@
-package implementations.map;
+package map;
 
-import interfaces.map.BasicHashMap;
+import hashing.InputHashing;
+import interfaces.BasicHashMap;
+import interfaces.InputHash;
 
 /**
  * An implementation of a BasicHashMap that maps string keys to integer values.
@@ -10,13 +12,14 @@ import interfaces.map.BasicHashMap;
 public class BasicHashMapImpl implements BasicHashMap {
     private final int[] values;
     private final int mapSize;
+    private final InputHash hashing;
 
     /**
      * Constructs a BasicMapImpl with the specified size.
      * @param size the size of the map
      */
-    public BasicHashMapImpl(int size) {
-        // TODO: take a hashing object
+    public BasicHashMapImpl(int size, InputHash hashing) {
+        this.hashing = hashing;
         this.mapSize = size;
         this.values = new int[mapSize];
     }
@@ -29,7 +32,7 @@ public class BasicHashMapImpl implements BasicHashMap {
      */
     @Override
     public void put(String key, int value) {
-        int hashedKey = hash(key, mapSize); // TODO: Replace with OBJ
+        int hashedKey = hashing.hashCode(key, mapSize); // TODO: Replace with OBJ
         values[hashedKey] = value;
     }
 
@@ -41,7 +44,7 @@ public class BasicHashMapImpl implements BasicHashMap {
      */
     @Override
     public int get(String key) {
-        int hashedKey = hash(key, mapSize); // TODO: replace with OBJ
+        int hashedKey = hashing.hashCode(key, mapSize);
         return values[hashedKey];
     }
 
@@ -50,9 +53,8 @@ public class BasicHashMapImpl implements BasicHashMap {
      * @param size the size of the new map.
      * @return a new BasicHashMap with the specified size.
      */
-    @Override
-    public BasicHashMap createNewMap(int size) {
-        return new BasicHashMapImpl(size);
+    public static BasicHashMap createNewMap(int size) {
+        return new BasicHashMapImpl(size, new InputHashing());
     }
 
     /**
@@ -62,17 +64,6 @@ public class BasicHashMapImpl implements BasicHashMap {
     @Override
     public int getMapSize() {
         return mapSize;
-    }
-
-    // TODO: remove
-    public static int hash(String key, int tableSize)
-    {
-        int hashVal = 0;
-
-        for( int i = 0; i < key.length(); i++ )
-            hashVal += key.charAt(i);
-
-        return hashVal % tableSize;
     }
 }
 

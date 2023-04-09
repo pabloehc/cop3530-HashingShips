@@ -1,8 +1,9 @@
-package implementations.map;
+package map;
 
-import implementations.RandomImpl;
+import interfaces.BasicHashMap;
+import random.RandomShipsImpl;
 import interfaces.RandomShips;
-import interfaces.map.ShipHashMap;
+import interfaces.ShipHashMap;
 
 import java.util.List;
 
@@ -14,15 +15,15 @@ import java.util.List;
  */
 public class BattleMap implements ShipHashMap {
 
-    private final RandomShips randomShips = new RandomImpl();
-    private final BasicHashMapImpl battleMap;
+    private final RandomShips randomShips = new RandomShipsImpl();
+    private final BasicHashMap battleMap;
     private int numberOfShips;
     private final List<String> shipKeys;
 
     BattleMap(int mapSize, int numberOfShips) {
         this.numberOfShips = numberOfShips;
         this.shipKeys = randomShips.randomValues(numberOfShips); // TODO: make sure they don't hash to the same keys
-        this.battleMap = new BasicHashMapImpl(mapSize);
+        this.battleMap = BasicHashMapImpl.createNewMap(mapSize);
         initShips();
     }
 
