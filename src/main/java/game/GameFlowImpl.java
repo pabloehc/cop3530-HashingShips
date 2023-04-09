@@ -24,6 +24,8 @@ public class GameFlowImpl implements GameFlow {
         if (!devMode) Thread.sleep(3000);
         System.out.println("No repeated input allowed!...");
         if (!devMode) Thread.sleep(2000);
+        System.out.println("You have access to 3 hints available at any time, simply write [hint] in the box...");
+        if (!devMode) Thread.sleep(2000);
         System.out.println("Try to sink all the ships to win the game!");
         if (!devMode) Thread.sleep(1000);
         System.out.println("--------------------------------------------------");
