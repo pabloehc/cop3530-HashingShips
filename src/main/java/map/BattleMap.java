@@ -24,7 +24,7 @@ public class BattleMap implements ShipHashMap {
     public BattleMap(int mapSize, int numberOfShips) {
         this.size = mapSize;
         this.numberOfShips = numberOfShips;
-        this.shipKeys = randomShips.randomValues(numberOfShips, size); // TODO: make sure they don't hash to the same keys
+        this.shipKeys = randomShips.randomValues(numberOfShips, size);
         this.battleMap = BasicHashMapImpl.createNewMap(size);
         initShips();
     }
