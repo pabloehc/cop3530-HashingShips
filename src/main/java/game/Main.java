@@ -4,15 +4,19 @@ import hashing.InputHashImpl;
 import interfaces.GameFlow;
 import interfaces.InputHash;
 import map.BattleMap;
+import Hinter.Hints;
 
 import java.util.Scanner;
 
 public class Main {
 
-    public static boolean devMode = false;
+    public static boolean devMode = true;
 //    public static InputValidator validator;
     public static GameFlow gameFlow = new GameFlowImpl(devMode);
     public static InputHash inputHash = new InputHashImpl();
+
+    public static Hints hints = new Hints();
+
 
     public static void main(String[] args) throws InterruptedException {
         BattleMap battleMap = new BattleMap(4, 2);
@@ -21,14 +25,18 @@ public class Main {
         gameFlow.showIntro();
 
         while (battleMap.hasShips()) {
+
             String attackKey = askForInput(scanner);
+            if(attackKey.equalsIgnoreCase("hint")) {
+               gameFlow.showHintMessage(hints.getNextHint(), hints.getSize());
+               continue;
+            }
+                boolean isSuccessfulAttack = attack(battleMap, attackKey);
+                gameFlow.showAttackResult(isSuccessfulAttack);
 
 //            if (!validator.isValid(attackKey)) {
 //                continue;
 //            }
-
-            boolean isSuccessfulAttack = attack(battleMap, attackKey);
-            gameFlow.showAttackResult(isSuccessfulAttack);
         }
 
         gameFlow.showFinalMessage();

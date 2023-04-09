@@ -3,8 +3,21 @@ package interfaces;
 public interface Hinter {
 
     /**
-     * Prints the next hint from the queue to the command line.
-     * If the queue is out of hints, do nothing.
+     * @return size of the Queue
      */
-    void printNextHint();
+    int getSize();
+
+
+    /**
+     * Add 3 string values into the Queue class
+     */
+    void populateHints();
+
+    /**
+     * Retrieves the next element from nextHint class and inserts it into a string GetHint and then removes that element
+     *
+     * @return returns a string value from inside nextHint Queue class
+     */
+    String getNextHint();
+
 }
