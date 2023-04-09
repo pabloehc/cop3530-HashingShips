@@ -1,6 +1,6 @@
 package map;
 
-import hashing.InputHashing;
+import hashing.InputHashImpl;
 import interfaces.BasicHashMap;
 import interfaces.InputHash;
 
@@ -32,7 +32,7 @@ public class BasicHashMapImpl implements BasicHashMap {
      */
     @Override
     public void put(String key, int value) {
-        int hashedKey = hashing.hashCode(key, mapSize); // TODO: Replace with OBJ
+        int hashedKey = hashing.hashInput(key, mapSize);
         values[hashedKey] = value;
     }
 
@@ -44,7 +44,7 @@ public class BasicHashMapImpl implements BasicHashMap {
      */
     @Override
     public int get(String key) {
-        int hashedKey = hashing.hashCode(key, mapSize);
+        int hashedKey = hashing.hashInput(key, mapSize);
         return values[hashedKey];
     }
 
@@ -54,7 +54,7 @@ public class BasicHashMapImpl implements BasicHashMap {
      * @return a new BasicHashMap with the specified size.
      */
     public static BasicHashMap createNewMap(int size) {
-        return new BasicHashMapImpl(size, new InputHashing());
+        return new BasicHashMapImpl(size, new InputHashImpl());
     }
 
     /**

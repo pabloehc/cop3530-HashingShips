@@ -1,13 +1,15 @@
 package random;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
+
+import hashing.InputHashImpl;
+import interfaces.InputHash;
 import interfaces.RandomShips;
-import java.util.List;
 
 public class RandomShipsImpl implements RandomShips {
 
-    public static final Random rand = new Random();
+    private static final Random rand = new Random();
+    public static final InputHash inputHash = new InputHashImpl();
 
 
     public static final int MIN_LIVES = 1;
@@ -17,18 +19,32 @@ public class RandomShipsImpl implements RandomShips {
 
     /**
      * Create a list of strings that has 2 random characters from a-z.
+     * They hash to unique keys.
      * @param numberOfShips is the length of the list.
      * @return a list of strings.
      */
     @Override
-    public List<String> randomValues(int numberOfShips) {
+    public List<String> randomValues(int numberOfShips, int tableSize) {
         List<String> shipNames = new ArrayList<>();
         Random random = new Random();
+        Set<Integer> keys = new HashSet<>();
+
+        if (numberOfShips >= tableSize) {
+            throw new RuntimeException(
+                    String.format("Table size %s should be higher tha number of ships %s", numberOfShips, tableSize));
+        }
 
         for (int i = 0; i < numberOfShips; i++) {
             char firstChar = (char) (random.nextInt(26) + 'a');
             char secondChar = (char) (random.nextInt(26) + 'a');
             String shipName = firstChar + String.valueOf(secondChar);
+
+            int hash = inputHash.hashInput(shipName, tableSize);
+            if (keys.contains(hash)){
+                i--;
+                continue;
+            }
+            keys.add(hash);
             shipNames.add(shipName);
         }
 

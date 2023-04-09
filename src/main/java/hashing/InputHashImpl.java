@@ -2,9 +2,9 @@ package hashing;
 
 import interfaces.InputHash;
 
-public class InputHashing implements InputHash {
+public class InputHashImpl implements InputHash {
 
-    public int hashCode(String key, int hashMapSize)
+    public int hashInput(String key, int hashMapSize)
     {
         int hashVal = 0;
 
