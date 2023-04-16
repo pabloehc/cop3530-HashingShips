@@ -7,7 +7,6 @@ public interface Hinter {
      */
     int getSize();
 
-
     /**
      * Add 3 string values into the Queue class
      */
@@ -15,9 +14,7 @@ public interface Hinter {
 
     /**
      * Retrieves the next element from nextHint class and inserts it into a string GetHint and then removes that element
-     *
      * @return returns a string value from inside nextHint Queue class
      */
     String getNextHint();
-
 }

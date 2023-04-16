@@ -13,6 +13,10 @@ public class GameFlowImpl implements GameFlow {
         this.devMode = devMode;
     }
 
+    /**
+     * Intro message that explains the game flow and rules
+     * @throws InterruptedException
+     */
     public void showIntro() throws InterruptedException {
         System.out.println("Welcome to the HashingShips game!");
         System.out.println(getCoolShip());
@@ -37,39 +41,109 @@ public class GameFlowImpl implements GameFlow {
         if (!devMode) Thread.sleep(1000);
     }
 
-    public void showAttackResult(boolean attackResult, boolean sunkShip) {
+    /**
+     * Shows the result of the users attack
+     * @param attackResult true if attack was successful else false.
+     * @param sunkShip true if the sink was sunk, else false
+     * @throws InterruptedException
+     */
+    public void showAttackResult(boolean attackResult, boolean sunkShip) throws InterruptedException {
         if (attackResult) {
-            System.out.println("Hit! You hit a ship!");
+            System.out.println(getCoolExplosion());
+            Thread.sleep(500);
+            System.out.println("Wow! You hit a ship!");
         } else {
             System.out.println("Missed! Try again.");
         }
 
         if (sunkShip){
+            Thread.sleep(500);
             System.out.println("You sank this ship! You're so smart :)");
         }
 
         System.out.println();
     }
 
+    /**
+     * Message for the game ends
+     * @throws InterruptedException
+     */
     public void showFinalMessage() throws InterruptedException {
+        System.out.println(getCoolTrophy());
         System.out.println("Congratulations! You have sunk all the ships!");
         if (!devMode) Thread.sleep(1000);
     }
 
-    public void showHintMessage(String getHint, int HintsLeft) throws InterruptedException {
-        if (!devMode) Thread.sleep(2000);
+    /**
+     * Formats and shows the hints
+     * @param hint to show.
+     * @param hintsLeft in the queue.
+     * @throws InterruptedException
+     */
+    public void showHintMessage(String hint, int hintsLeft) throws InterruptedException {
         System.out.println("You asked for a hint! Let's get one...");
-        if (!devMode) Thread.sleep(4000);
-        System.out.println(getHint);
-        if (!devMode) Thread.sleep(5000);
-        System.out.println("You have " + HintsLeft + " hints left!\n");
+        if (!devMode) Thread.sleep(1000);
+        System.out.println();
+        System.out.println(hint);
+        System.out.println();
+        if (!devMode) Thread.sleep(2000);
+        System.out.println("You have " + hintsLeft + " hints left!\n");
     }
 
-    public String getCoolShip() {
+    /**
+     * Cool ascii ship
+     * @return the ship as a string of ascii values.
+     */
+    private String getCoolShip() {
         return "                __/___            \n" +
                 "          _____/______|           \n" +
                 "  _______/_____\\_______\\_____     \n" +
                 "  \\              < < <       |    \n" +
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+    }
+
+    /**
+     * Cool explosion ascii
+     * @return the explosion as a string of ascii values
+     */
+    private String getCoolExplosion() {
+        return "          _ ._  _ , _ ._\n" +
+                "        (_ ' ( `  )_  .__)\n" +
+                "      ( (  (    )   `)  ) _)\n" +
+                "     (__ (_   (_ . _) _) ,__)\n" +
+                "         `~~`\\ ' . /`~~`\n" +
+                "              ;   ;\n" +
+                "              /   \\\n" +
+                "_____________/_ __ \\_____________";
+    }
+
+    /**
+     * Cool trophy ascii
+     * @return a trophy as a string of ascii values
+     */
+    private String getCoolTrophy() {
+        return "                                  ___________\n" +
+                "                             .---'::'        `---.\n" +
+                "                            (::::::'              )\n" +
+                "                            |`-----._______.-----'|\n" +
+                "                            |              :::::::|\n" +
+                "                           .|               ::::::!-.\n" +
+                "                           \\|               :::::/|/\n" +
+                "                            |               ::::::|\n" +
+                "                            |   Best HashSinker  :|\n" +
+                "                            |       in town   ::::|\n" +
+                "                            |               ::::::|\n" +
+                "                            |              .::::::|\n" +
+                "                            J              :::::::F\n" +
+                "                             \\            :::::::/\n" +
+                "                              `.        .:::::::'\n" +
+                "                                `-._  .::::::-'\n" +
+                "____________________________________|  \"\"\"|\"_________________________________________\n" +
+                "                                    |  :::|\n" +
+                "                                    F   ::J\n" +
+                "                                   /     ::\\                                        \n" +
+                "                              __.-'      :::`-.__\n" +
+                "                             (_           ::::::_)\n" +
+                "                               `\"\"\"---------\"\"\"'";
     }
 }

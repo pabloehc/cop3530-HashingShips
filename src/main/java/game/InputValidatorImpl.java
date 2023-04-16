@@ -9,7 +9,11 @@ public class InputValidatorImpl implements InputValidator {
 
     public final Set<String> inputSet = new HashSet<>();
 
-
+    /**
+     * Applies all validations to input.
+     * @param input to validate.
+     * @return true if valid, else false.
+     */
     @Override
     public boolean isValid(String input) throws InterruptedException {
         if (!validateLength(input, 2)) {
