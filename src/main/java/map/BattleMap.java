@@ -74,6 +74,10 @@ public class BattleMap implements ShipHashMap {
         return numberOfShips > 0;
     }
 
+    public int getNumberOfShips() {
+        return numberOfShips;
+    }
+
     public int getSize() {
         return size;
     }

@@ -1,8 +1,7 @@
-package Hinter;
+package hinter;
 
 
 import java.util.LinkedList;
-import java.util.Optional;
 
 public class StringQueue {
     private final LinkedList<String> queue;
