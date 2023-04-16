@@ -1,4 +1,4 @@
-package Hinter;
+package hinter;
 
 import interfaces.Hinter;
 

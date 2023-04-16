@@ -15,7 +15,8 @@ public class GameFlowImpl implements GameFlow {
 
     public void showIntro() throws InterruptedException {
         System.out.println("Welcome to the HashingShips game!");
-        if (!devMode) Thread.sleep(1000);
+        System.out.println(getCoolShip());
+        if (!devMode) Thread.sleep(2000);
         System.out.println("There are 2 ships hidden in the map...");
         if (!devMode) Thread.sleep(2000);
         System.out.println("You write a 1 to 2 char string to attack (e.g.,'a', 'ab')...");
@@ -36,12 +37,17 @@ public class GameFlowImpl implements GameFlow {
         if (!devMode) Thread.sleep(1000);
     }
 
-    public void showAttackResult(boolean attackResult) {
+    public void showAttackResult(boolean attackResult, boolean sunkShip) {
         if (attackResult) {
             System.out.println("Hit! You hit a ship!");
         } else {
             System.out.println("Missed! Try again.");
         }
+
+        if (sunkShip){
+            System.out.println("You sank this ship! You're so smart :)");
+        }
+
         System.out.println();
     }
 
@@ -57,5 +63,13 @@ public class GameFlowImpl implements GameFlow {
         System.out.println(getHint);
         if (!devMode) Thread.sleep(5000);
         System.out.println("You have " + HintsLeft + " hints left!\n");
+    }
+
+    public String getCoolShip() {
+        return "                __/___            \n" +
+                "          _____/______|           \n" +
+                "  _______/_____\\_______\\_____     \n" +
+                "  \\              < < <       |    \n" +
+                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
     }
 }
