@@ -27,28 +27,39 @@ public class Main {
      * @throws InterruptedException
      */
     public static void main(String[] args) throws InterruptedException {
+        // Creates a battle map of size 4 with 2 ships in it
         BattleMap battleMap = new BattleMap(4, 2);
         Scanner scanner = new Scanner(System.in);
 
+        // Outputs the intro to the terminal to introduce the user to the game
         gameFlow.showIntro();
 
+        // While the map still has ships, we keep the player in the game
         while (battleMap.hasShips()) {
+            int numberOfShipsBeforeAttack = battleMap.getNumberOfShips();
 
+            // Ask the user for input
             String attackKey = askForInput(scanner);
+
+            // Check if the user asked for a hint, if so, give one and continue
             if(attackKey.equalsIgnoreCase("hint")) {
                gameFlow.showHintMessage(hints.getNextHint(), hints.getSize());
                continue;
             }
 
+            // Check if the input is valid, if not, continue
             if (!validator.isValid(attackKey)) {
                 continue;
             }
 
-            int previousNumberOfShips = battleMap.getNumberOfShips();
+            // Attacks at the given position
             boolean isSuccessfulAttack = attack(battleMap, attackKey);
-            gameFlow.showAttackResult(isSuccessfulAttack, previousNumberOfShips != battleMap.getNumberOfShips());
+
+            // Shows the attack result and checks if a ship was sunk by comparing the previous number of ships with the current one
+            gameFlow.showAttackResult(isSuccessfulAttack, numberOfShipsBeforeAttack != battleMap.getNumberOfShips());
         }
 
+        // The user won and we show the final message
         gameFlow.showFinalMessage();
         scanner.close();
     }

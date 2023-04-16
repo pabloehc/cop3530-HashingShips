@@ -12,8 +12,8 @@ public class RandomShipsImpl implements RandomShips {
     public static final InputHash inputHash = new InputHashImpl();
 
 
-    public static final int MIN_LIVES = 1;
-    public static final int MAX_LIVES = 5;
+    public static final int MIN_LIVES = 2;
+    public static final int MAX_LIVES = 3;
     public static final int MIN_SHIPS = 1;
     public static final int MAX_SHIPS = 5;
 
