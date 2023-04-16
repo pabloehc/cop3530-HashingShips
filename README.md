@@ -1,4 +1,8 @@
 # HashingShips
+
+_To make development easier we created a public repository where we all contributed to: [repository](https://github.com/pabloehc/cop3530-HashingShips)
+That is where you will find a history of our Pull Requests._
+
 Hashing Ships is a terminal game where users must sink ships in a hashmap.
 
 **Running the Main method in the Main class allows you to play the game.**
