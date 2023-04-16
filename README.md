@@ -9,6 +9,7 @@ Hashing Ships is a terminal game where users must sink ships in a hashmap.
 
 ## DEMO VIDEO
 https://youtu.be/D2mXzmxPJCs
+
 [![DEMO VIDEO!](coolGame.png)](https://youtu.be/D2mXzmxPJCs. "HashingShips demo - COP3530 Project")
 
 ## How we are using data structures in our project
